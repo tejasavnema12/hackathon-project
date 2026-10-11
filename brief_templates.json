@@ -1,0 +1,27 @@
+{
+  "_comment": "English brief templates for brief.py. Every number is filled from ranking.json via {placeholders}. Do not put numbers in these strings.",
+  "en": {
+    "title": "GhatWatch brief: Durga visarjan {visarjan_date_long} ({days_phrase})",
+    "days_left": "{days_to_durga} days left",
+    "days_one": "{days_to_durga} day left",
+    "days_today": "today",
+    "days_past": "date has passed",
+    "top_header": "Highest-risk ghats (Durga tables, {year_min}-{year_max}):",
+    "ghat_line": "- {ghat_name}: Tier {tier}{tie_note}. {fails} of {n} readings outside CPCB class B; {do_phrase}.{gap_note}",
+    "tie_note_with": " (tied with {tie_partner})",
+    "tie_note_alone": " (tied)",
+    "do_zero": "zero dissolved oxygen recorded",
+    "do_value": "lowest DO {worst_do} {do_unit}",
+    "do_null": "no DO reading in scope",
+    "gap_note_durga": " No Durga {latest_year} data.",
+    "action_line": "  Action: {action_short}.",
+    "gaps_line": "Data gaps: no Durga {latest_year} data for {durga_missing_list}.{partial_sentence} Missing is not a clean result.",
+    "gaps_partial": " Some readings not sampled at {partial_list}.",
+    "gaps_none_durga": "Data gaps: some readings not sampled at {partial_list}. Missing is not a clean result.",
+    "gaps_none": "Data gaps: none flagged in the Durga tables. Missing is not a clean result.",
+    "actions_header": "Recommended actions:",
+    "action_item": "- {action}",
+    "limitation": "Limits: readings compared with CPCB class B limits for pH, DO and BOD only; coliform not tested. No health conclusions; past readings do not predict the day.",
+    "source": "Source: MPPCB Ganesh/Durga visarjan reports {year_min}-{year_max}; page references in the dashboard."
+  }
+}

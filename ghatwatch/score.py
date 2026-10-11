@@ -159,7 +159,7 @@ for _, r in df[df["parameter"].isin(PARAM_MAP)].iterrows():
         "ghat": r["ghat"], "year": yr, "festival": r["festival"], "phase": r["phase"], "parameter": p,
         "value": num(value), "value_as_printed": printed, "limit": LIMIT_TEXT[p], "status": status,
         "source_report": REPORTS[yr], "source_page": page,
-        "source_url": f"../resources/{REPORTS[yr]}#page={page}",
+        "source_url": f"resources/{REPORTS[yr]}#page={page}",
     })
 
 # synthetic no_table rows for any (ghat, year, festival, phase, param) with no CSV row
@@ -175,7 +175,7 @@ for g in GHATS:
                             "id": eid, "ghat": g["id"], "year": yr, "festival": fest, "phase": ph, "parameter": p,
                             "value": None, "value_as_printed": "", "limit": LIMIT_TEXT[p], "status": "no_table",
                             "source_report": None, "source_page": None,
-                            "source_url": f"../resources/{REPORTS[2025] if yr == 2025 else REPORTS[yr]}",
+                            "source_url": f"resources/{REPORTS[2025] if yr == 2025 else REPORTS[yr]}",
                         })
 EV = {e["id"]: e for e in evidence}
 assert len(EV) == len(evidence), "duplicate evidence ids"

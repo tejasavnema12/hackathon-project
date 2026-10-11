@@ -62,3 +62,6 @@
 - Motion: count-ups that end on the exact data text (checked after the animation: 9, 4, 25/57, 50/53, 1, 2, 88%, 17, 2), bars that grow in, staggered card entrance, sliding tab and scope indicators, panel and scope cross-fades, Chart.js 650 ms animations, a blurred scrim with a slide-in drawer, and custom tooltips replacing native titles. The only loop is the pulse dot on Critical badges. prefers-reduced-motion turns all of it off.
 - Colour: the BOD series and the Ganesh lines were teal (reads as green), now magenta and violet. The palette was validated (adjacent pairs pass CVD and normal-vision checks). No green anywhere. The no-data hatch, "No Durga 2025 table", "Confidence low", legends and limitations are unchanged.
 - Numbers unchanged: Bairagarh Durga 12 of 18, and all ranking rows match ranking.json. Data, score.py and ranking.json were not touched.
+
+## index.html moved to repo root (17:20)
+- `index.html` now sits at the repo root, so a static host can publish the repo root (`./`) with the `resources/` PDFs and no redirect. Library and font paths changed to `ghatwatch/vendor/...`. score.py now writes `source_url` as `resources/<file>#page=N` (schema.md updated), and build.py writes to `../index.html`. Rebuilt: kpis 42/116, 100/112, 6/115, 4, 2/7 unchanged; Bairagarh 24/39 all, 12/18 Durga.

@@ -1,4 +1,4 @@
-"""Embed ranking.json (+ brief.json) into index.html between the DATA markers.
+"""Embed ranking.json (+ brief.json, ghat_coords.json) into the repo-root index.html between the DATA markers.
 
 Usage: python ghatwatch/build.py [--fixture]
 """
@@ -21,7 +21,7 @@ def main():
     if coords.exists():
         data["coords"] = json.loads(coords.read_text(encoding="utf-8"))
 
-    html_path = HERE / "index.html"
+    html_path = HERE.parent / "index.html"
     html = html_path.read_text(encoding="utf-8")
     if html.count(START) != 1 or html.count(END) != 1:
         sys.exit("index.html must contain exactly one DATA_START/DATA_END pair")

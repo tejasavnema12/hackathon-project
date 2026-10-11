@@ -22,13 +22,13 @@ The **Bhopal Municipal Corporation (BMC) officer who plans Durga visarjan at the
 
 ## How to run (5 steps)
 
-The prebuilt `ghatwatch/index.html` already works without running anything: just do step 5.
+The prebuilt `index.html` (repo root) already works without running anything: just do step 5.
 
 1. Clone the repo: `git clone <this repo URL>` and `cd` into it.
 2. Install the one dependency (Python 3.10+): `pip install pandas`
 3. Score the data: `python ghatwatch/score.py` (writes `ghatwatch/ranking.json`)
 4. Make the brief and build the page: `python ghatwatch/brief.py` then `python ghatwatch/build.py` (embeds the data into `index.html`)
-5. Open `ghatwatch/index.html` in a browser. It works offline straight from disk; the PDF evidence links open `resources/*.pdf` at the right page.
+5. Open `index.html` (repo root) in a browser. It works offline straight from disk; the PDF evidence links open `resources/*.pdf` at the right page.
 
 Windows note: if the console shows an encoding error, first run `set PYTHONIOENCODING=utf-8` (cmd) or `$env:PYTHONIOENCODING="utf-8"` (PowerShell).
 
@@ -112,19 +112,22 @@ Only the files provided by the organisers in `data/` and `resources/` (source: h
 ## Project structure
 
 ```
+index.html              the offline dashboard (open this; repo root so the resources/ PDFs deploy with it)
+resources/              the original MPPCB report PDFs (evidence links open these)
+data/                   the provided CSVs
 ghatwatch/
   score.py              scoring: CSV + CPCB limits -> ranking.json
   brief.py              builds the English brief (brief.json) from ranking.json
   brief_templates.json  sentence templates used by brief.py
-  build.py              embeds ranking.json + brief.json into index.html
-  index.html            the offline dashboard (open this)
+  build.py              embeds ranking.json + brief.json + ghat_coords.json into ../index.html
+  ghat_coords.json      approximate map positions (OpenStreetMap)
   ranking.json          generated tiers, alerts, evidence and coverage
   brief.json            generated brief
   fixture.json          small test fixture (python ghatwatch/build.py --fixture)
   schema.md             data contract between score.py, brief.py and index.html
   BUILD-LOG.md          build decisions, questions and assumptions
   VERIFY-REPORT.md      acceptance test results
-  vendor/               Chart.js (chart.umd.js) and its licence
+  vendor/               Chart.js, Leaflet and the Inter font (all local, with licences)
 ```
 
 ## Built with

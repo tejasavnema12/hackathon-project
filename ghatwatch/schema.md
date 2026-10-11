@@ -190,7 +190,7 @@ One row per CSV row where parameter ∈ {pH, Dissolved oxygen, BOD} (360 rows), 
 | `status` | `"fail"` \| `"within_limit"` \| `"missing"` \| `"no_table"` | `missing` = CSV row exists but no number (not sampled / `*` / `**` / `_`) |
 | `source_report` | string or null | PDF filename: 2023 `Idol_immer._Report_23_CPCB.pdf`, 2024 `Ganesh_and_Durga_visarjan_report-2024.pdf`, 2025 `Ganesh_and_Durga_visarjan_report-2025.pdf` |
 | `source_page` | int or null | null for no_table |
-| `source_url` | string or null | relative to `ghatwatch/index.html`: `"../resources/<file>#page=<n>"`. For no_table: `"../resources/Ganesh_and_Durga_visarjan_report-2025.pdf"` (no page) |
+| `source_url` | string or null | relative to the repo-root `index.html`: `"resources/<file>#page=<n>"`. For no_table: `"resources/Ganesh_and_Durga_visarjan_report-2025.pdf"` (no page) |
 
 ### `coverage[]`
 One row per (ghat id, year, festival, phase) over the full grid: 8 ghat ids, but `kamla_park_kund` is Ganesh only and `rani_kamlapati_ghat` is Durga only. So 6 ghats × 3 years × 2 festivals × 3 phases + 2 × 3 × 1 × 3 = 108 + 18 = **126 rows**.
@@ -227,7 +227,7 @@ Plain English strings. It must include at least these points:
 |---|---|
 | Orchestrator | `schema.md`, `fixture.json`, `build.py`, `BUILD-LOG.md` |
 | A1 Scoring | `score.py`, `ranking.json` |
-| A2 Frontend | `index.html`, `vendor/` |
+| A2 Frontend | `index.html` (repo root), `ghatwatch/vendor/` |
 | A3 Brief | `brief.py`, `brief_templates.json` (and its output `brief.json`) |
 | A4 Verifier | `VERIFY-REPORT.md` |
 | A5 Docs | `README.md`, `LICENSE`, `.gitignore` (repo root) |
@@ -236,7 +236,7 @@ Anyone may append questions or status lines to `BUILD-LOG.md`.
 
 ## Embedding (build step)
 
-`index.html` must contain exactly one block:
+`index.html` lives at the **repo root** (so a static host can serve the repo root and the `resources/` PDFs together). It loads its libraries from `ghatwatch/vendor/`. It must contain exactly one block:
 ```html
 <script id="ghatwatch-data" type="application/json">
 /*DATA_START*/{ ...fixture or ranking JSON... }/*DATA_END*/

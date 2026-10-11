@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "generated_on": "2026-10-11",
+    "durga_visarjan_date": "2026-10-20",
+    "days_to_durga": 9,
+    "class_b_limits": {
+      "DO": {"type": "min", "value": 5, "unit": "mg/l"},
+      "BOD": {"type": "max", "value": 3, "unit": "mg/l"},
+      "pH": {"type": "range", "min": 6.5, "max": 8.5, "unit": ""}
+    },
+    "source_csv": "data/bhopal_ghats_2023_2025.csv",
+    "years": [2023, 2024, 2025],
+    "ghats": [
+      {"id": "bairagarh", "name": "Bairagarh (Sant Hirdaram) kund", "site_group": "Bairagarh (Sant Hirdaram) kund", "water_body": "Upper Lake (enclosed kund)", "site_match": "high"},
+      {"id": "khatlapura", "name": "Khatlapura ghat", "site_group": "Khatlapura ghat", "water_body": "Lower Lake", "site_match": "high"},
+      {"id": "prempura", "name": "Prempura ghat", "site_group": "Prempura ghat", "water_body": "Upper Lake", "site_match": "high"}
+    ],
+    "schema_version": "1.0",
+    "fixture": true
+  },
+  "kpis": [
+    {"id": "days_to_durga", "label": "Days to Durga visarjan", "value": 9, "n": null, "scope": "all", "evidence_ids": []},
+    {"id": "do_below_5", "label": "DO readings below 5 mg/l", "value": 3, "n": 6, "scope": "all", "evidence_ids": ["E-2023-D-bairagarh-pre-DO", "E-2023-D-bairagarh-during-DO", "E-2024-G-khatlapura-during-DO"]},
+    {"id": "bod_above_3", "label": "BOD readings above 3 mg/l", "value": 4, "n": 5, "scope": "all", "evidence_ids": ["E-2023-D-bairagarh-pre-BOD", "E-2023-D-bairagarh-during-BOD", "E-2024-G-khatlapura-during-BOD", "E-2025-D-prempura-during-BOD"]},
+    {"id": "ph_out_of_range", "label": "pH readings outside 6.5–8.5", "value": 1, "n": 6, "scope": "all", "evidence_ids": ["E-2024-G-khatlapura-during-pH"]},
+    {"id": "do_zero", "label": "DO readings of zero", "value": 2, "n": 6, "scope": "all", "evidence_ids": ["E-2023-D-bairagarh-pre-DO", "E-2023-D-bairagarh-during-DO"]},
+    {"id": "ghats_no_durga_2025", "label": "Ghats with no Durga 2025 table", "value": 1, "n": 3, "scope": "all", "evidence_ids": ["E-2025-D-bairagarh-during-DO"]}
+  ],
+  "ranking": {
+    "all": [
+      {
+        "ghat": "bairagarh", "name": "Bairagarh (Sant Hirdaram) kund", "site_group": "Bairagarh (Sant Hirdaram) kund",
+        "rank": 1, "tier": 1, "near_tie": false, "fail_rate": 0.833, "fails": 5, "n": 6,
+        "per_param_fails": {"DO": {"fails": 2, "n": 2}, "BOD": {"fails": 2, "n": 2}, "pH": {"fails": 0, "n": 2}},
+        "worst_DO": {"value": 0, "evidence_id": "E-2023-D-bairagarh-pre-DO"},
+        "durga_2025_missing": true,
+        "reason_en": "2 of 2 DO readings were below 5 mg/l, both zero. BOD was above 3 mg/l in both readings. No Durga 2025 table in the report.",
+        "action": "Test before, during and after Durga visarjan (no 2025 Durga data). Keep aeration and cleaning on standby.",
+        "confidence": {"n_readings": 6, "missing_festivals": ["Durga 2025"], "site_match": "high", "notes": ["Enclosed kund: conductivity up to 1882, unlike lake water"], "level": "low"},
+        "evidence_ids": ["E-2023-D-bairagarh-pre-DO", "E-2023-D-bairagarh-during-DO", "E-2023-D-bairagarh-pre-BOD", "E-2023-D-bairagarh-during-BOD", "E-2023-D-bairagarh-pre-pH", "E-2023-D-bairagarh-during-pH", "E-2025-D-bairagarh-during-DO"]
+      },
+      {
+        "ghat": "khatlapura", "name": "Khatlapura ghat", "site_group": "Khatlapura ghat",
+        "rank": 2, "tier": 2, "near_tie": false, "fail_rate": 0.429, "fails": 3, "n": 7,
+        "per_param_fails": {"DO": {"fails": 1, "n": 2}, "BOD": {"fails": 1, "n": 2}, "pH": {"fails": 1, "n": 3}},
+        "worst_DO": {"value": 4.0, "evidence_id": "E-2024-G-khatlapura-during-DO"},
+        "durga_2025_missing": false,
+        "reason_en": "1 of 2 DO readings was below 5 mg/l (lowest 4.0). pH 6.49 was recorded once, just below 6.5.",
+        "action": "Watch: test during and after visarjan, and plan cleaning after immersion.",
+        "confidence": {"n_readings": 7, "missing_festivals": [], "site_match": "high", "notes": [], "level": "high"},
+        "evidence_ids": ["E-2024-G-khatlapura-during-DO", "E-2025-D-khatlapura-during-DO", "E-2024-G-khatlapura-during-BOD", "E-2025-D-khatlapura-during-BOD", "E-2024-G-khatlapura-during-pH", "E-2025-D-khatlapura-during-pH", "E-2023-D-khatlapura-during-BOD"]
+      },
+      {
+        "ghat": "prempura", "name": "Prempura ghat", "site_group": "Prempura ghat",
+        "rank": 3, "tier": 3, "near_tie": false, "fail_rate": 0.25, "fails": 1, "n": 4,
+        "per_param_fails": {"DO": {"fails": 0, "n": 2}, "BOD": {"fails": 1, "n": 1}, "pH": {"fails": 0, "n": 1}},
+        "worst_DO": {"value": 5.4, "evidence_id": "E-2023-D-prempura-pre-DO"},
+        "durga_2025_missing": false,
+        "reason_en": "DO stayed at or above 5 mg/l in these readings. BOD was above 3 mg/l once (4.1). 2023 Durga BOD was not sampled.",
+        "action": "Routine: standard monitoring. Readings are still outside limits at times.",
+        "confidence": {"n_readings": 4, "missing_festivals": ["Durga 2023 BOD (not sampled)"], "site_match": "high", "notes": [], "level": "medium"},
+        "evidence_ids": ["E-2023-D-prempura-pre-DO", "E-2025-D-prempura-during-DO", "E-2025-D-prempura-during-BOD", "E-2025-D-prempura-during-pH", "E-2023-D-prempura-pre-BOD"]
+      }
+    ],
+    "durga": [
+      {
+        "ghat": "bairagarh", "name": "Bairagarh (Sant Hirdaram) kund", "site_group": "Bairagarh (Sant Hirdaram) kund",
+        "rank": 1, "tier": 1, "near_tie": false, "fail_rate": 0.667, "fails": 4, "n": 6,
+        "per_param_fails": {"DO": {"fails": 2, "n": 2}, "BOD": {"fails": 2, "n": 2}, "pH": {"fails": 0, "n": 2}},
+        "worst_DO": {"value": 0, "evidence_id": "E-2023-D-bairagarh-pre-DO"},
+        "durga_2025_missing": true,
+        "reason_en": "Zero dissolved oxygen recorded in Durga 2023 (pre and during). No Durga 2025 table in the report.",
+        "action": "Test before, during and after Durga visarjan (no 2025 Durga data). Keep aeration and cleaning on standby.",
+        "confidence": {"n_readings": 6, "missing_festivals": ["Durga 2025"], "site_match": "high", "notes": [], "level": "low"},
+        "evidence_ids": ["E-2023-D-bairagarh-pre-DO", "E-2023-D-bairagarh-during-DO", "E-2025-D-bairagarh-during-DO"]
+      },
+      {
+        "ghat": "khatlapura", "name": "Khatlapura ghat", "site_group": "Khatlapura ghat",
+        "rank": 2, "tier": 2, "near_tie": true, "fail_rate": 0.4, "fails": 2, "n": 5,
+        "per_param_fails": {"DO": {"fails": 1, "n": 2}, "BOD": {"fails": 1, "n": 2}, "pH": {"fails": 0, "n": 1}},
+        "worst_DO": {"value": 4.2, "evidence_id": "E-2025-D-khatlapura-during-DO"},
+        "durga_2025_missing": false,
+        "reason_en": "1 of 2 DO readings was below 5 mg/l. 2023 Durga during-immersion BOD was not sampled.",
+        "action": "Watch: test during and after visarjan, and plan cleaning after immersion.",
+        "confidence": {"n_readings": 5, "missing_festivals": ["Durga 2023 during BOD (not sampled)"], "site_match": "high", "notes": [], "level": "medium"},
+        "evidence_ids": ["E-2025-D-khatlapura-during-DO", "E-2025-D-khatlapura-during-BOD", "E-2023-D-khatlapura-during-BOD"]
+      },
+      {
+        "ghat": "prempura", "name": "Prempura ghat", "site_group": "Prempura ghat",
+        "rank": 3, "tier": 3, "near_tie": false, "fail_rate": 0.25, "fails": 1, "n": 4,
+        "per_param_fails": {"DO": {"fails": 0, "n": 2}, "BOD": {"fails": 1, "n": 1}, "pH": {"fails": 0, "n": 1}},
+        "worst_DO": {"value": 5.4, "evidence_id": "E-2023-D-prempura-pre-DO"},
+        "durga_2025_missing": false,
+        "reason_en": "DO stayed at or above 5 mg/l. BOD was above 3 mg/l once.",
+        "action": "Routine: standard monitoring. Readings are still outside limits at times.",
+        "confidence": {"n_readings": 4, "missing_festivals": [], "site_match": "high", "notes": [], "level": "medium"},
+        "evidence_ids": ["E-2023-D-prempura-pre-DO", "E-2025-D-prempura-during-BOD"]
+      }
+    ],
+    "ganesh": [
+      {
+        "ghat": "khatlapura", "name": "Khatlapura ghat", "site_group": "Khatlapura ghat",
+        "rank": 1, "tier": 2, "near_tie": false, "fail_rate": 0.444, "fails": 4, "n": 9,
+        "per_param_fails": {"DO": {"fails": 2, "n": 3}, "BOD": {"fails": 1, "n": 3}, "pH": {"fails": 1, "n": 3}},
+        "worst_DO": {"value": 4.0, "evidence_id": "E-2024-G-khatlapura-during-DO"},
+        "durga_2025_missing": false,
+        "reason_en": "2 of 3 DO readings were below 5 mg/l in Ganesh 2024.",
+        "action": "Watch: test during and after visarjan, and plan cleaning after immersion.",
+        "confidence": {"n_readings": 9, "missing_festivals": [], "site_match": "high", "notes": [], "level": "high"},
+        "evidence_ids": ["E-2024-G-khatlapura-during-DO", "E-2024-G-khatlapura-during-pH"]
+      }
+    ]
+  },
+  "alerts": [
+    {"id": "A01", "severity": "critical", "rule_id": "DO_ZERO", "ghat": "bairagarh", "scope": "all", "text_params": {"count": 2, "years": [2023]}, "text_en": "Bairagarh (Sant Hirdaram) kund: zero dissolved oxygen recorded 2 times (2023).", "evidence_ids": ["E-2023-D-bairagarh-pre-DO", "E-2023-D-bairagarh-during-DO"]},
+    {"id": "A02", "severity": "data", "rule_id": "DURGA_MISSING", "ghat": "bairagarh", "scope": "durga", "text_params": {"year": 2025}, "text_en": "Bairagarh (Sant Hirdaram) kund: no Durga 2025 table in the report. Missing data is not a clean result.", "evidence_ids": ["E-2025-D-bairagarh-during-DO"]},
+    {"id": "A03", "severity": "warning", "rule_id": "PH_OUT", "ghat": "khatlapura", "scope": "all", "text_params": {"values": [6.49]}, "text_en": "Khatlapura ghat: pH 6.49 recorded, outside the 6.5–8.5 range.", "evidence_ids": ["E-2024-G-khatlapura-during-pH"]}
+  ],
+  "insights": [
+    {"id": "I01", "template_id": "BASELINE_ALREADY_HIGH", "params": {"fails": 2, "n": 2}, "text_en": "BOD was already above 3 mg/l before immersion in 2 of 2 pre-immersion readings in this sample.", "evidence_ids": ["E-2023-D-bairagarh-pre-BOD"]},
+    {"id": "I02", "template_id": "DATA_GAP_WORST_SITES", "params": {"ghats": ["bairagarh"]}, "text_en": "The ghat with the lowest DO has no Durga 2025 table, so the most recent Durga picture is missing exactly where it matters most.", "evidence_ids": ["E-2025-D-bairagarh-during-DO"]}
+  ],
+  "evidence": [
+    {"id": "E-2023-D-bairagarh-pre-DO", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "pre", "parameter": "DO", "value": 0, "value_as_printed": "0", "limit": "≥ 5", "status": "fail", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-bairagarh-during-DO", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "during", "parameter": "DO", "value": 0, "value_as_printed": "0", "limit": "≥ 5", "status": "fail", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-bairagarh-after-DO", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "after", "parameter": "DO", "value": 4.2, "value_as_printed": "4.2", "limit": "≥ 5", "status": "fail", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-bairagarh-pre-BOD", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "pre", "parameter": "BOD", "value": 9.2, "value_as_printed": "9.2", "limit": "≤ 3", "status": "fail", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-bairagarh-during-BOD", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "during", "parameter": "BOD", "value": 9, "value_as_printed": "9", "limit": "≤ 3", "status": "fail", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-bairagarh-pre-pH", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "pre", "parameter": "pH", "value": 7.32, "value_as_printed": "7.32", "limit": "6.5–8.5", "status": "within_limit", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-bairagarh-during-pH", "ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "during", "parameter": "pH", "value": 7.55, "value_as_printed": "7.55", "limit": "6.5–8.5", "status": "within_limit", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2025-D-bairagarh-during-DO", "ghat": "bairagarh", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "DO", "value": null, "value_as_printed": "", "limit": "≥ 5", "status": "no_table", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": null, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf"},
+    {"id": "E-2024-G-khatlapura-during-DO", "ghat": "khatlapura", "year": 2024, "festival": "Ganesh", "phase": "during", "parameter": "DO", "value": 4.0, "value_as_printed": "4", "limit": "≥ 5", "status": "fail", "source_report": "Ganesh_and_Durga_visarjan_report-2024.pdf", "source_page": 69, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2024.pdf#page=69"},
+    {"id": "E-2024-G-khatlapura-during-BOD", "ghat": "khatlapura", "year": 2024, "festival": "Ganesh", "phase": "during", "parameter": "BOD", "value": 7.2, "value_as_printed": "7.2", "limit": "≤ 3", "status": "fail", "source_report": "Ganesh_and_Durga_visarjan_report-2024.pdf", "source_page": 69, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2024.pdf#page=69"},
+    {"id": "E-2024-G-khatlapura-during-pH", "ghat": "khatlapura", "year": 2024, "festival": "Ganesh", "phase": "during", "parameter": "pH", "value": 6.49, "value_as_printed": "6.49", "limit": "6.5–8.5", "status": "fail", "source_report": "Ganesh_and_Durga_visarjan_report-2024.pdf", "source_page": 69, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2024.pdf#page=69"},
+    {"id": "E-2025-D-khatlapura-during-DO", "ghat": "khatlapura", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "DO", "value": 6.6, "value_as_printed": "6.6", "limit": "≥ 5", "status": "within_limit", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": 64, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf#page=64"},
+    {"id": "E-2025-D-khatlapura-during-BOD", "ghat": "khatlapura", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "BOD", "value": 3.0, "value_as_printed": "3", "limit": "≤ 3", "status": "within_limit", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": 64, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf#page=64"},
+    {"id": "E-2025-D-khatlapura-during-pH", "ghat": "khatlapura", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "pH", "value": 7.9, "value_as_printed": "7.9", "limit": "6.5–8.5", "status": "within_limit", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": 64, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf#page=64"},
+    {"id": "E-2023-D-khatlapura-during-BOD", "ghat": "khatlapura", "year": 2023, "festival": "Durga", "phase": "during", "parameter": "BOD", "value": null, "value_as_printed": "_", "limit": "≤ 3", "status": "missing", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 59, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=59"},
+    {"id": "E-2023-D-prempura-pre-DO", "ghat": "prempura", "year": 2023, "festival": "Durga", "phase": "pre", "parameter": "DO", "value": 5.4, "value_as_printed": "5.4", "limit": "≥ 5", "status": "within_limit", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2023-D-prempura-pre-BOD", "ghat": "prempura", "year": 2023, "festival": "Durga", "phase": "pre", "parameter": "BOD", "value": null, "value_as_printed": "_", "limit": "≤ 3", "status": "missing", "source_report": "Idol_immer._Report_23_CPCB.pdf", "source_page": 60, "source_url": "../resources/Idol_immer._Report_23_CPCB.pdf#page=60"},
+    {"id": "E-2025-D-prempura-during-DO", "ghat": "prempura", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "DO", "value": 4.9, "value_as_printed": "4.9", "limit": "≥ 5", "status": "fail", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": 65, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf#page=65"},
+    {"id": "E-2025-D-prempura-during-BOD", "ghat": "prempura", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "BOD", "value": 4.1, "value_as_printed": "4.1", "limit": "≤ 3", "status": "fail", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": 65, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf#page=65"},
+    {"id": "E-2025-D-prempura-during-pH", "ghat": "prempura", "year": 2025, "festival": "Durga", "phase": "during", "parameter": "pH", "value": 8.3, "value_as_printed": "8.3", "limit": "6.5–8.5", "status": "within_limit", "source_report": "Ganesh_and_Durga_visarjan_report-2025.pdf", "source_page": 65, "source_url": "../resources/Ganesh_and_Durga_visarjan_report-2025.pdf#page=65"}
+  ],
+  "coverage": [
+    {"ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "pre", "status": "numeric", "n_numeric": 10, "n_bdl": 2, "n_missing": 0, "ranking_params_numeric": 3},
+    {"ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "during", "status": "numeric", "n_numeric": 11, "n_bdl": 1, "n_missing": 0, "ranking_params_numeric": 3},
+    {"ghat": "bairagarh", "year": 2023, "festival": "Durga", "phase": "after", "status": "numeric", "n_numeric": 10, "n_bdl": 2, "n_missing": 0, "ranking_params_numeric": 3},
+    {"ghat": "bairagarh", "year": 2025, "festival": "Ganesh", "phase": "pre", "status": "missing", "n_numeric": 0, "n_bdl": 0, "n_missing": 13, "ranking_params_numeric": 0},
+    {"ghat": "bairagarh", "year": 2025, "festival": "Ganesh", "phase": "during", "status": "numeric", "n_numeric": 13, "n_bdl": 0, "n_missing": 0, "ranking_params_numeric": 3},
+    {"ghat": "bairagarh", "year": 2025, "festival": "Ganesh", "phase": "after", "status": "missing", "n_numeric": 0, "n_bdl": 0, "n_missing": 13, "ranking_params_numeric": 0},
+    {"ghat": "bairagarh", "year": 2025, "festival": "Durga", "phase": "pre", "status": "no_table", "n_numeric": 0, "n_bdl": 0, "n_missing": 0, "ranking_params_numeric": 0},
+    {"ghat": "bairagarh", "year": 2025, "festival": "Durga", "phase": "during", "status": "no_table", "n_numeric": 0, "n_bdl": 0, "n_missing": 0, "ranking_params_numeric": 0},
+    {"ghat": "bairagarh", "year": 2025, "festival": "Durga", "phase": "after", "status": "no_table", "n_numeric": 0, "n_bdl": 0, "n_missing": 0, "ranking_params_numeric": 0},
+    {"ghat": "khatlapura", "year": 2023, "festival": "Durga", "phase": "during", "status": "numeric", "n_numeric": 8, "n_bdl": 3, "n_missing": 1, "ranking_params_numeric": 2},
+    {"ghat": "khatlapura", "year": 2025, "festival": "Durga", "phase": "during", "status": "numeric", "n_numeric": 11, "n_bdl": 1, "n_missing": 0, "ranking_params_numeric": 3},
+    {"ghat": "prempura", "year": 2023, "festival": "Durga", "phase": "pre", "status": "numeric", "n_numeric": 8, "n_bdl": 3, "n_missing": 1, "ranking_params_numeric": 2},
+    {"ghat": "prempura", "year": 2025, "festival": "Durga", "phase": "during", "status": "numeric", "n_numeric": 12, "n_bdl": 0, "n_missing": 0, "ranking_params_numeric": 3}
+  ],
+  "limitations": [
+    "FIXTURE DATA: a small hand-made sample for testing the layout. Not the real ranking.",
+    "Only pH, DO and BOD have CPCB class B limits. Total coliform (also a class B limit) was not tested, so no site can be said to meet class B.",
+    "Pre-immersion readings already exceed limits often, so the data does not show that immersion caused them.",
+    "The brief is in English only; a Hindi brief has not been produced."
+  ],
+  "brief": {
+    "text_en": "FIXTURE BRIEF – Durga visarjan 2026 (20 Oct): ghat water-test summary\n\n1. Bairagarh (Sant Hirdaram) kund – Tier 1. Zero dissolved oxygen recorded twice in Durga 2023. No Durga 2025 table.\n\nData gaps: missing readings are shown as missing, not as clean.\nSource: MPPCB visarjan reports 2023–2025; CPCB class B limits.",
+    "generated_on": "2026-10-11",
+    "scope": "durga"
+  }
+}

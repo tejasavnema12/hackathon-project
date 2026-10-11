@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Local analysis
+scratch/
+
+# Environment files
+.env
+*.env
+
+# Local Claude Code instructions file: it contains a secret (API key)
+# and must never be pushed to the public repo.
+CLAUDE.md
+claude.md
